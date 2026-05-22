@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Departments | CityCare Hospital</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="text-center mb-5">
+
+            <h1 class="fw-bold text-primary">
+                Our Departments
+            </h1>
+
+            <p class="text-muted">
+                Expert healthcare services for every patient.
+            </p>
+
+        </div>
+
+        <!-- Department Cards -->
+        <div class="row g-4">
+
+            {% for d in dept %}
+
+            <div class="col-md-4">
+
+                <div class="dept-card h-100">
+
+                    <div class="dept-icon">
+
+                        <i class="fa-solid fa-stethoscope"></i>
+
+                    </div>
+
+                    <h4 class="fw-bold text-primary mt-4">
+
+                        {{ d.dep_name }}
+
+                    </h4>
+
+                    <p class="text-muted mt-3">
+
+                        {{ d.dep_description }}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Custom CSS -->
+<style>
+
+.dept-card{
+    background: white;
+    padding: 30px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+}
+
+.dept-card:hover{
+    transform: translateY(-6px);
+}
+
+.dept-icon{
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    border-radius: 18px;
+    background: #eaf2ff;
+    color: #0d6efd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+</style>
+
+{% endblock %}

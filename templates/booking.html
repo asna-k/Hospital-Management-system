@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+<title>Book Appointment | CityCare Hospital</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="booking-section py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center align-items-center g-5">
+
+            <!-- Left Content -->
+            <div class="col-lg-5">
+
+                <span class="booking-badge">
+                    APPOINTMENT
+                </span>
+
+                <h1 class="fw-bold display-5 mt-3">
+
+                    Book Your
+                    Appointment Easily
+
+                </h1>
+
+                <p class="text-muted fs-5 mt-4">
+
+                    Schedule your appointment with our experienced doctors
+                    and receive trusted healthcare services with comfort
+                    and care.
+
+                </p>
+
+                <!-- Features -->
+                <div class="mt-4">
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-user-doctor text-primary"></i>
+
+                        <span>
+                            Expert Medical Specialists
+                        </span>
+
+                    </div>
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-clock text-success"></i>
+
+                        <span>
+                            Quick & Easy Booking
+                        </span>
+
+                    </div>
+
+                    <div class="feature-item">
+
+                        <i class="fa-solid fa-heart-pulse text-danger"></i>
+
+                        <span>
+                            Trusted Patient Care
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right Form -->
+            <div class="col-lg-5">
+
+                <div class="booking-card shadow-lg">
+
+                    <h3 class="text-center fw-bold mb-4 text-primary">
+
+                        Appointment Form
+
+                    </h3>
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button type="submit"
+                                class="btn btn-primary w-100 rounded-pill py-2 mt-3">
+
+                            Book Now
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Custom CSS -->
+<style>
+
+.booking-section{
+    background: #f8fbff;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.booking-badge{
+    background: #eaf2ff;
+    color: #0d6efd;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.feature-item{
+    background: white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.feature-item:hover{
+    transform: translateY(-4px);
+}
+
+.feature-item i{
+    font-size: 22px;
+}
+
+.booking-card{
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+}
+
+.booking-card input,
+.booking-card select,
+.booking-card textarea{
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.booking-card input:focus,
+.booking-card select:focus,
+.booking-card textarea:focus{
+    border-color: #0d6efd;
+    box-shadow: 0 0 10px rgba(13,110,253,0.2);
+}
+
+.booking-card label{
+    font-weight: 500;
+    color: #333;
+}
+
+.btn{
+    transition: 0.3s ease;
+}
+
+.btn:hover{
+    transform: scale(1.03);
+}
+
+</style>
+
+{% endblock %}

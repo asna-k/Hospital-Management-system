@@ -1,0 +1,210 @@
+{% extends 'auth_base.html' %}
+
+{% block title %}
+<title>Doctor Dashboard | CityCare Hospital</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-section py-5">
+
+    <div class="container">
+
+        <!-- Welcome Card -->
+        <div class="dashboard-card shadow-lg">
+
+            <div class="row align-items-center">
+
+                <!-- Left Content -->
+                <div class="col-lg-8">
+
+                    <span class="dashboard-badge">
+                        DOCTOR PANEL
+                    </span>
+
+                    <h1 class="dashboard-title mt-3">
+
+                        Welcome Dr. {{ request.user.username }}
+
+                    </h1>
+
+                    <p class="dashboard-text">
+
+                        Manage patient reports, monitor appointments,
+                        and access hospital services from your dashboard.
+
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class="mt-4 d-flex gap-3 flex-wrap">
+
+                        <a href="{% url 'view_reports' %}"
+                           class="btn btn-primary btn-lg rounded-pill px-4">
+
+                            View Patient Reports
+                        </a>
+
+                        <a href="{% url 'logout' %}"
+                           class="btn btn-outline-danger btn-lg rounded-pill px-4">
+
+                            Logout
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Right Icon -->
+                <div class="col-lg-4 text-center mt-4 mt-lg-0">
+
+                    <div class="doctor-icon-box">
+
+                        <i class="fa-solid fa-user-doctor"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="row mt-5 g-4">
+
+            <div class="col-md-4">
+
+                <div class="stats-card shadow-sm">
+
+                    <i class="fa-solid fa-file-medical text-primary"></i>
+
+                    <h3 class="mt-3">
+                        Reports
+                    </h3>
+
+                    <p class="text-muted">
+                        Access and manage patient reports easily.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="stats-card shadow-sm">
+
+                    <i class="fa-solid fa-calendar-check text-success"></i>
+
+                    <h3 class="mt-3">
+                        Appointments
+                    </h3>
+
+                    <p class="text-muted">
+                        Track upcoming patient appointments.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="stats-card shadow-sm">
+
+                    <i class="fa-solid fa-hospital text-danger"></i>
+
+                    <h3 class="mt-3">
+                        Hospital
+                    </h3>
+
+                    <p class="text-muted">
+                        Connected with CityCare healthcare services.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Custom CSS -->
+<style>
+
+.dashboard-section{
+    background: #f8fbff;
+    min-height: 90vh;
+}
+
+.dashboard-card{
+    background: white;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.dashboard-badge{
+    background: #eaf2ff;
+    color: #0d6efd;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.dashboard-title{
+    font-size: 48px;
+    font-weight: 700;
+    color: #1f2d3d;
+}
+
+.dashboard-text{
+    color: #6c757d;
+    font-size: 18px;
+    margin-top: 15px;
+    max-width: 650px;
+}
+
+.doctor-icon-box{
+    width: 180px;
+    height: 180px;
+    margin: auto;
+    border-radius: 50%;
+    background: #eaf2ff;
+    color: #0d6efd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+}
+
+.stats-card{
+    background: white;
+    padding: 35px 25px;
+    border-radius: 25px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.stats-card:hover{
+    transform: translateY(-6px);
+}
+
+.stats-card i{
+    font-size: 45px;
+}
+
+.btn{
+    transition: 0.3s ease;
+}
+
+.btn:hover{
+    transform: scale(1.05);
+}
+
+</style>
+
+{% endblock %}

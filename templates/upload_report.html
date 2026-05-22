@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Upload Medical Report | CityCare Hospital</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="upload-section py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-7 col-lg-6">
+
+                <div class="upload-card shadow-lg">
+
+                    <!-- Heading -->
+                    <div class="text-center mb-4">
+
+                        <h2 class="fw-bold text-primary">
+                            Upload Medical Report
+                        </h2>
+
+                        <p class="text-muted">
+                            Add patient reports securely to the system
+                        </p>
+
+                    </div>
+
+                    <!-- Form -->
+                    <form method="POST" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button type="submit"
+                                class="btn btn-success w-100 rounded-pill py-2 mt-3">
+
+                            Upload Report
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Custom CSS -->
+<style>
+
+.upload-section{
+    background: #f8fbff;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.upload-card{
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+}
+
+.upload-card input,
+.upload-card select,
+.upload-card textarea{
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.upload-card input:focus,
+.upload-card select:focus,
+.upload-card textarea:focus{
+    border-color: #198754;
+    box-shadow: 0 0 10px rgba(25,135,84,0.2);
+}
+
+.btn{
+    transition: 0.3s ease;
+}
+
+.btn:hover{
+    transform: scale(1.03);
+}
+
+</style>
+
+{% endblock %}

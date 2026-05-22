@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Patient Reports | CityCare Hospital</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="reports-section py-5">
+
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="text-center mb-4">
+
+            <h2 class="fw-bold text-primary">
+                Patient Reports
+            </h2>
+
+            <p class="text-muted">
+                View and manage uploaded medical reports
+            </p>
+
+        </div>
+
+        <!-- Table Card -->
+        <div class="table-card shadow-lg">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-primary">
+
+                        <tr>
+
+                            <th>Patient</th>
+
+                            <th>Report Name</th>
+
+                            <th class="text-center">Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for report in reports %}
+
+                        <tr>
+
+                            <td class="fw-semibold">
+                                {{ report.patient.username }}
+                            </td>
+
+                            <td>
+                                {{ report.report_name }}
+                            </td>
+
+                            <td class="text-center">
+
+                                <a href="{{ report.report_file.url }}"
+                                   target="_blank"
+                                   class="btn btn-primary btn-sm rounded-pill px-3">
+
+                                    View
+
+                                </a>
+
+                                <a href="{{ report.report_file.url }}"
+                                   download
+                                   class="btn btn-success btn-sm rounded-pill px-3">
+
+                                    Download
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td colspan="3" class="text-center text-muted py-4">
+
+                                No Reports Uploaded
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Custom CSS -->
+<style>
+
+.reports-section{
+    background: #f8fbff;
+    min-height: 90vh;
+}
+
+.table-card{
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.table thead th{
+    font-weight: 600;
+}
+
+.btn{
+    transition: 0.3s ease;
+}
+
+.btn:hover{
+    transform: scale(1.05);
+}
+
+</style>
+
+{% endblock %}

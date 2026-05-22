@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Our Doctors | CityCare Hospital</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="doctor-section py-5">
+
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="text-center mb-5">
+
+            <h1 class="doctor-heading">
+                Our Doctors
+            </h1>
+
+            <p class="doctor-subtitle">
+                Meet our experienced and trusted medical specialists.
+            </p>
+
+        </div>
+
+        <!-- Doctors -->
+        <div class="row g-4 justify-content-center">
+
+            {% for doctor in doctors %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="doctor-card h-100">
+
+                    <!-- Image -->
+                    <div class="doctor-img-box">
+
+                        <img src="{{ doctor.doc_image.url }}"
+                             class="doctor-img"
+                             alt="Doctor Image">
+
+                    </div>
+
+                    <!-- Info -->
+                    <div class="doctor-info">
+
+                        <h3 class="doctor-name">
+
+                            Dr. {{ doctor.doc_name }}
+
+                        </h3>
+
+                        <p class="doctor-spec">
+
+                            {{ doctor.doc_spec }}
+
+                        </p>
+
+                        <p class="doctor-dept">
+
+                            {{ doctor.dep_name }}
+
+                        </p>
+
+                        <!-- Button -->
+                        <a href="{% url 'booking' %}"
+                           class="btn btn-primary rounded-pill px-4 mt-3">
+
+                            Book Appointment
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Custom CSS -->
+
+<style>
+
+.doctor-section{
+    background: linear-gradient(to bottom, #f8fbff, #eef5ff);
+    min-height: 100vh;
+}
+
+.doctor-heading{
+    font-size: 48px;
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+.doctor-subtitle{
+    color: #6c757d;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* CARD */
+
+.doctor-card{
+    background: #ffffff;
+    border-radius: 25px;
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+    transition: all 0.4s ease;
+}
+
+.doctor-card:hover{
+    transform: translateY(-10px);
+}
+
+/* IMAGE BOX */
+
+.doctor-img-box{
+
+    width: 100%;
+    height: 380px;
+
+    background: #f4f8ff;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* IMAGE */
+
+.doctor-img{
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 15px;
+
+    transition: 0.4s ease;
+}
+
+.doctor-card:hover .doctor-img{
+    transform: scale(1.03);
+}
+
+/* INFO */
+
+.doctor-info{
+    padding: 25px;
+    text-align: center;
+}
+
+.doctor-name{
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2d3d;
+}
+
+.doctor-spec{
+    color: #0d6efd;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.doctor-dept{
+    color: #6c757d;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+/* BUTTON */
+
+.btn{
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.btn:hover{
+    transform: scale(1.05);
+}
+
+</style>
+
+{% endblock %}

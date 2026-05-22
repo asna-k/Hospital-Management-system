@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Contact Us | CityCare Hospital</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="contact-section py-5">
+
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="text-center mb-5">
+
+            <h1 class="contact-heading">
+                Contact Us
+            </h1>
+
+            <p class="contact-subtitle">
+                We're here to help you with trusted healthcare support.
+            </p>
+
+        </div>
+
+        <div class="row align-items-center g-5">
+
+            <!-- Contact Info -->
+            <div class="col-lg-5">
+
+                <div class="contact-card">
+
+                    <!-- Address -->
+                    <div class="contact-item">
+
+                        <div class="icon-box">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Address
+                            </h5>
+
+                            <p class="text-muted mb-0">
+
+                                CityCare Hospital <br>
+                                MG Road, Kochi, Kerala
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="contact-item">
+
+                        <div class="icon-box">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Phone
+                            </h5>
+
+                            <p class="text-muted mb-0">
+                                +91 9876543210
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contact-item">
+
+                        <div class="icon-box">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Email
+                            </h5>
+
+                            <p class="text-muted mb-0">
+                                citycarehospital@gmail.com
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Google Map -->
+            <div class="col-lg-7">
+
+                <div class="map-box shadow-lg">
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Kochi,Kerala&output=embed"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Custom CSS -->
+<style>
+
+.contact-section{
+    background: #f8fbff;
+}
+
+.contact-heading{
+    font-size: 48px;
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+.contact-subtitle{
+    color: #6c757d;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.contact-card{
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.contact-item{
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.icon-box{
+    width: 60px;
+    height: 60px;
+    background: #eaf2ff;
+    color: #0d6efd;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.map-box{
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+</style>
+
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends 'auth_base.html' %}
+
+{% block title %}
+<title>Login | CityCare Hospital</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="login-section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-6 col-lg-5">
+
+                <div class="login-card shadow-lg">
+
+                    <!-- Heading -->
+                    <div class="text-center mb-4">
+
+                        <h2 class="fw-bold text-primary">
+                            Login
+                        </h2>
+
+                        <p class="text-muted">
+                            Access your account
+                        </p>
+
+                    </div>
+
+                    <!-- Form -->
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <input type="text"
+                               name="username"
+                               placeholder="Username"
+                               class="form-control mb-3">
+
+                        <input type="password"
+                               name="password"
+                               placeholder="Password"
+                               class="form-control mb-3">
+
+                        <button type="submit"
+                                class="btn btn-success w-100 rounded-pill py-2">
+
+                            Login
+
+                        </button>
+
+                    </form>
+
+                    <!-- Links -->
+                    <div class="text-center mt-4">
+
+                        <a href="{% url 'doctor_register' %}" class="auth-link">
+                            Register as Doctor
+                        </a>
+
+                        <br>
+
+                        <a href="{% url 'patient_register' %}" class="auth-link">
+                            Register as Patient
+                        </a>
+
+                    </div>
+
+                    <!-- Error -->
+                    {% if error %}
+
+                    <p class="text-danger text-center mt-3 mb-0">
+
+                        {{ error }}
+
+                    </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Custom CSS -->
+<style>
+
+.login-section{
+    background: #f8fbff;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.login-card{
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+}
+
+.login-card input{
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    transition: 0.3s ease;
+}
+
+.login-card input:focus{
+    border-color: #198754;
+    box-shadow: 0 0 10px rgba(25,135,84,0.2);
+    outline: none;
+}
+
+.auth-link{
+    display: inline-block;
+    margin-top: 8px;
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-link:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    transition: 0.3s ease;
+}
+
+.btn:hover{
+    transform: scale(1.03);
+}
+
+</style>
+
+{% endblock %}
