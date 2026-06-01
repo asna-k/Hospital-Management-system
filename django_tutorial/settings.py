@@ -176,6 +176,8 @@ MEDIA_URL = '/uploads/'
 
 MEDIA_ROOT = BASE_DIR / 'uploads'
 
+DEBUG = True
+
 
 # =========================
 # CRISPY FORMS
