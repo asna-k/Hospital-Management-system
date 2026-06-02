@@ -2,13 +2,9 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
-# =========================
-# BASE DIRECTORY
-# =========================
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load .env file
+# Load .env only for local development
 load_dotenv(BASE_DIR / ".env")
 
 
@@ -18,9 +14,9 @@ load_dotenv(BASE_DIR / ".env")
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']   # later replace with Render domain
 
 
 # =========================
@@ -28,7 +24,6 @@ ALLOWED_HOSTS = ['*']
 # =========================
 
 INSTALLED_APPS = [
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,22 +31,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # custom app
     'home',
 
-    # crispy forms
     'crispy_forms',
     'crispy_bootstrap5',
 ]
 
 
 # =========================
-# MIDDLEWARE
+# MIDDLEWARE (IMPORTANT FIX HERE)
 # =========================
 
 MIDDLEWARE = [
-
     'django.middleware.security.SecurityMiddleware',
+
+    # ✅ ADD THIS (VERY IMPORTANT FOR RENDER)
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -124,25 +120,21 @@ AUTH_PASSWORD_VALIDATORS = [
 # =========================
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
 # =========================
-# STATIC FILES
+# STATIC FILES (FIXED FOR RENDER)
 # =========================
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
-
+STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# ✅ IMPORTANT (FIX MIME ERROR)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # =========================
